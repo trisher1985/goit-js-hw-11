@@ -2,17 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./img/github-icon-2.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YHez_11th_JS_DZ</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>goit-js-hw-10</h1>
-      <ul>
-        <li><a class="page-btn" href="./1-timer.html">Timer</a></li>
-        <li><a class="page-btn" href="./2-snackbar.html">Snackbar</a></li>
-      </ul>
-    </div>
+
+    <main>
+        <form action="submit" class="form js-form">
+          <input type="text" name="query" placeholder="Search images..">
+        
+          <button>Search</button>
+        </form>
+        
+        <div class="container">
+          <span class="loader"></span>
+          <ul class="gallery js-gallery"></ul>
+        </div>
+    </main>
+
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
