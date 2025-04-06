@@ -2,7 +2,7 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import axios from "axios";
 
-const KEY = '45785559-b0577f06fb94f4ced9a4d3280';
+const KEY = '49618464-a19ac1b17166537848db4f1c0';
 const BASE_URL = 'https://pixabay.com/api/';
 
 // export function getSearch(searchText) {
