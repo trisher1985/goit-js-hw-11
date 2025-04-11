@@ -1,6 +1,8 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+let lightbox; // Екземпляр SimpleLightbox
+
 // Функція для створення галереї
 export function createGallery(images) {
   const gallery = document.querySelector('.gallery');
@@ -35,12 +37,28 @@ export function createGallery(images) {
     .join('');
 
   gallery.insertAdjacentHTML('beforeend', markup);
+  
+  // Ініціалізуємо або оновлюємо SimpleLightbox
+  if (lightbox) {
+    lightbox.refresh();
+  } else {
+    lightbox = new SimpleLightbox('.gallery a', {
+      captionsData: 'alt',
+      captionDelay: 250,
+    });
+  }
 }
 
 // Функція для очищення галереї
 export function clearGallery() {
   const gallery = document.querySelector('.gallery');
   gallery.innerHTML = '';
+  
+  // Якщо lightbox існує, знищуємо його
+  if (lightbox) {
+    lightbox.destroy();
+    lightbox = null;
+  }
 }
 
 // Функція для показу лоадера
@@ -54,6 +72,3 @@ export function hideLoader() {
   const loader = document.querySelector('.loader');
   loader.style.display = 'none';
 }
-
-
-

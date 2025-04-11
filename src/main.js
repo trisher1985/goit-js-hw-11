@@ -1,5 +1,3 @@
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
@@ -12,7 +10,6 @@ const gallery = document.querySelector('.js-gallery');
 const loader = document.querySelector('.loader');
 
 // Ініціалізація змінних
-let lightbox; // Екземпляр SimpleLightbox
 let currentQuery = '';
 
 // Приховуємо лоадер при завантаженні сторінки
@@ -51,9 +48,6 @@ form.addEventListener('submit', async (evt) => {
     // Додаємо розмітку в галерею
     createGallery(images);
     
-    // Ініціалізуємо/оновлюємо SimpleLightbox
-    initLightbox();
-    
   } catch (error) {
     showErrorToast('Something went wrong. Please try again later!');
     console.error('Search error:', error);
@@ -63,18 +57,6 @@ form.addEventListener('submit', async (evt) => {
     form.reset();
   }
 });
-
-// Функція для ініціалізації SimpleLightbox
-function initLightbox() {
-  if (lightbox) {
-    lightbox.refresh();
-  } else {
-    lightbox = new SimpleLightbox('.gallery a', {
-      captionsData: 'alt',
-      captionDelay: 250,
-    });
-  }
-}
 
 // Функція для показу помилок
 function showErrorToast(message) {
